@@ -441,3 +441,4 @@ C:\Users\hatic\source\repos\DetoxMeApp\DetoxMeApp\obj\Debug\net5.0\Razor\Views\D
 C:\Users\hatic\source\repos\DetoxMeApp\DetoxMeApp\obj\Debug\net5.0\Razor\Views\Detox\Details.cshtml.g.cs
 C:\Users\hatic\source\repos\DetoxMeApp\DetoxMeApp\obj\Debug\net5.0\Razor\Views\Detox\Edit.cshtml.g.cs
 C:\Users\hatic\source\repos\DetoxMeApp\DetoxMeApp\obj\Debug\net5.0\Razor\Views\Detox\Index.cshtml.g.cs
+C:\Users\hatic\source\repos\DetoxMeApp\DetoxMeApp\obj\Debug\net5.0\Razor\Views\Detox\ShowSearchForm.cshtml.g.cs

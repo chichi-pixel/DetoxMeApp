@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using DetoxMeApp.Data;
 using DetoxMeApp.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace DetoxMeApp.Controllers
 {
@@ -34,7 +35,7 @@ namespace DetoxMeApp.Controllers
         // POST: Detox/ShowSearchResults
         public async Task<IActionResult>ShowSearchResults(String SearchPhrase)
         {
-            return View("Index", await _context.Detox.ToListAsync());
+            return View("Index", await _context.Detox.Where( j=> j.DetoxQuestion.Contains(SearchPhrase)).ToListAsync());
         }
 
         // GET: Detox/Details/5
@@ -56,6 +57,8 @@ namespace DetoxMeApp.Controllers
         }
 
         // GET: Detox/Create
+
+        [Authorize]
         public IActionResult Create()
         {
             return View();
@@ -64,6 +67,8 @@ namespace DetoxMeApp.Controllers
         // POST: Detox/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,DetoxQuestion,DetoxAnswer")] Detox detox)
@@ -78,6 +83,8 @@ namespace DetoxMeApp.Controllers
         }
 
         // GET: Detox/Edit/5
+
+        [Authorize]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -96,6 +103,8 @@ namespace DetoxMeApp.Controllers
         // POST: Detox/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,DetoxQuestion,DetoxAnswer")] Detox detox)
@@ -129,6 +138,8 @@ namespace DetoxMeApp.Controllers
         }
 
         // GET: Detox/Delete/5
+
+        [Authorize]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -147,6 +158,8 @@ namespace DetoxMeApp.Controllers
         }
 
         // POST: Detox/Delete/5
+
+        [Authorize]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
